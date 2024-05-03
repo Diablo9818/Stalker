@@ -1,11 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    private float _horizontalInput;
+    private float _verticalInput;
+
     public Vector3 GetInput()
     {
-        return new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * Time.deltaTime;
+        _horizontalInput = Input.GetAxis("Horizontal");
+        _verticalInput = Input.GetAxis("Vertical");
+
+        return new Vector3(_horizontalInput, 0, _verticalInput) * Time.deltaTime;
     }
 }
